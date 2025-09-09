@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindowDesign</class>
+ <widget class="QMainWindow" name="MainWindowDesign">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>944</width>
+    <height>704</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>QRosApp</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../resources/images.qrc">
+    <normaloff>:/images/icon.png</normaloff>:/images/icon.png</iconset>
+  </property>
+  <property name="locale">
+   <locale language="English" country="Australia"/>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QLabel" name="titleLabel">
+      <property name="text">
+       <string>Package Controller</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>16</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="packageControlGroup">
+      <property name="title">
+       <string>Package Control</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout">
+       <!-- Package 1 -->
+       <item row="0" column="0">
+        <widget class="QLabel" name="package1Label">
+         <property name="text">
+          <string>Package 1:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QPushButton" name="startPackage1Button">
+         <property name="text">
+          <string>Start</string>
+         </property>
+         <property name="styleSheet">
+          <string>QPushButton { background-color: #4CAF50; color: white; border: none; padding: 8px; border-radius: 4px; }
+QPushButton:hover { background-color: #45a049; }</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="2">
+        <widget class="QPushButton" name="stopPackage1Button">
+         <property name="text">
+          <string>Stop</string>
+         </property>
+         <property name="styleSheet">
+          <string>QPushButton { background-color: #f44336; color: white; border: none; padding: 8px; border-radius: 4px; }
+QPushButton:hover { background-color: #da190b; }</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="3">
+        <widget class="QPushButton" name="restartPackage1Button">
+         <property name="text">
+          <string>Restart</string>
+         </property>
+         <property name="styleSheet">
+          <string>QPushButton { background-color: #ff9800; color: white; border: none; padding: 8px; border-radius: 4px; }
+QPushButton:hover { background-color: #e68900; }</string>
+         </property>
+        </widget>
+       </item>
+       
+       <!-- Package 2 -->
+       <item row="1" column="0">
+        <widget class="QLabel" name="package2Label">
+         <property name="text">
+          <string>Package 2:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QPushButton" name="startPackage2Button">
+         <property name="text">
+          <string>Start</string>
+         </property>
+         <property name="styleSheet">
+          <string>QPushButton { background-color: #4CAF50; color: white; border: none; padding: 8px; border-radius: 4px; }
+QPushButton:hover { background-color: #45a049; }</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="2">
+        <widget class="QPushButton" name="stopPackage2Button">
+         <property name="text">
+          <string>Stop</string>
+         </property>
+         <property name="styleSheet">
+          <string>QPushButton { background-color: #f44336; color: white; border: none; padding: 8px; border-radius: 4px; }
+QPushButton:hover { background-color: #da190b; }</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="3">
+        <widget class="QPushButton" name="restartPackage2Button">
+         <property name="text">
+          <string>Restart</string>
+         </property>
+         <property name="styleSheet">
+          <string>QPushButton { background-color: #ff9800; color: white; border: none; padding: 8px; border-radius: 4px; }
+QPushButton:hover { background-color: #e68900; }</string>
+         </property>
+        </widget>
+       </item>
+       
+       <!-- Package 3 -->
+       <item row="2" column="0">
+        <widget class="QLabel" name="package3Label">
+         <property name="text">
+          <string>Package 3:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QPushButton" name="startPackage3Button">
+         <property name="text">
+          <string>Start</string>
+         </property>
+         <property name="styleSheet">
+          <string>QPushButton { background-color: #4CAF50; color: white; border: none; padding: 8px; border-radius: 4px; }
+QPushButton:hover { background-color: #45a049; }</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="2">
+        <widget class="QPushButton" name="stopPackage3Button">
+         <property name="text">
+          <string>Stop</string>
+         </property>
+         <property name="styleSheet">
+          <string>QPushButton { background-color: #f44336; color: white; border: none; padding: 8px; border-radius: 4px; }
+QPushButton:hover { background-color: #da190b; }</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="3">
+        <widget class="QPushButton" name="restartPackage3Button">
+         <property name="text">
+          <string>Restart</string>
+         </property>
+         <property name="styleSheet">
+          <string>QPushButton { background-color: #ff9800; color: white; border: none; padding: 8px; border-radius: 4px; }
+QPushButton:hover { background-color: #e68900; }</string>
+         </property>
+        </widget>
+       </item>
+       
+       <!-- Package 4 -->
+       <item row="3" column="0">
+        <widget class="QLabel" name="package4Label">
+         <property name="text">
+          <string>Package 4:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QPushButton" name="startPackage4Button">
+         <property name="text">
+          <string>Start</string>
+         </property>
+         <property name="styleSheet">
+          <string>QPushButton { background-color: #4CAF50; color: white; border: none; padding: 8px; border-radius: 4px; }
+QPushButton:hover { background-color: #45a049; }</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="2">
+        <widget class="QPushButton" name="stopPackage4Button">
+         <property name="text">
+          <string>Stop</string>
+         </property>
+         <property name="styleSheet">
+          <string>QPushButton { background-color: #f44336; color: white; border: none; padding: 8px; border-radius: 4px; }
+QPushButton:hover { background-color: #da190b; }</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="3">
+        <widget class="QPushButton" name="restartPackage4Button">
+         <property name="text">
+          <string>Restart</string>
+         </property>
+         <property name="styleSheet">
+          <string>QPushButton { background-color: #ff9800; color: white; border: none; padding: 8px; border-radius: 4px; }
+QPushButton:hover { background-color: #e68900; }</string>
+         </property>
+        </widget>
+       </item>
+       
+       <!-- Package 5 -->
+       <item row="4" column="0">
+        <widget class="QLabel" name="package5Label">
+         <property name="text">
+          <string>Package 5:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QPushButton" name="startPackage5Button">
+         <property name="text">
+          <string>Start</string>
+         </property>
+         <property name="styleSheet">
+          <string>QPushButton { background-color: #4CAF50; color: white; border: none; padding: 8px; border-radius: 4px; }
+QPushButton:hover { background-color: #45a049; }</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="2">
+        <widget class="QPushButton" name="stopPackage5Button">
+         <property name="text">
+          <string>Stop</string>
+         </property>
+         <property name="styleSheet">
+          <string>QPushButton { background-color: #f44336; color: white; border: none; padding: 8px; border-radius: 4px; }
+QPushButton:hover { background-color: #da190b; }</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="3">
+        <widget class="QPushButton" name="restartPackage5Button">
+         <property name="text">
+          <string>Restart</string>
+         </property>
+         <property name="styleSheet">
+          <string>QPushButton { background-color: #ff9800; color: white; border: none; padding: 8px; border-radius: 4px; }
+QPushButton:hover { background-color: #e68900; }</string>
+         </property>
+        </widget>
+       </item>
+       
+       <!-- Package 6 -->
+       <item row="5" column="0">
+        <widget class="QLabel" name="package6Label">
+         <property name="text">
+          <string>Package 6:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QPushButton" name="startPackage6Button">
+         <property name="text">
+          <string>Start</string>
+         </property>
+         <property name="styleSheet">
+          <string>QPushButton { background-color: #4CAF50; color: white; border: none; padding: 8px; border-radius: 4px; }
+QPushButton:hover { background-color: #45a049; }</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="2">
+        <widget class="QPushButton" name="stopPackage6Button">
+         <property name="text">
+          <string>Stop</string>
+         </property>
+         <property name="styleSheet">
+          <string>QPushButton { background-color: #f44336; color: white; border: none; padding: 8px; border-radius: 4px; }
+QPushButton:hover { background-color: #da190b; }</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="3">
+        <widget class="QPushButton" name="restartPackage6Button">
+         <property name="text">
+          <string>Restart</string>
+         </property>
+         <property name="styleSheet">
+          <string>QPushButton { background-color: #ff9800; color: white; border: none; padding: 8px; border-radius: 4px; }
+QPushButton:hover { background-color: #e68900; }</string>
+         </property>
+        </widget>
+       </item>
+       
+       <!-- Package 7 -->
+       <item row="6" column="0">
+        <widget class="QLabel" name="package7Label">
+         <property name="text">
+          <string>Package 7:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="1">
+        <widget class="QPushButton" name="startPackage7Button">
+         <property name="text">
+          <string>Start</string>
+         </property>
+         <property name="styleSheet">
+          <string>QPushButton { background-color: #4CAF50; color: white; border: none; padding: 8px; border-radius: 4px; }
+QPushButton:hover { background-color: #45a049; }</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="2">
+        <widget class="QPushButton" name="stopPackage7Button">
+         <property name="text">
+          <string>Stop</string>
+         </property>
+         <property name="styleSheet">
+          <string>QPushButton { background-color: #f44336; color: white; border: none; padding: 8px; border-radius: 4px; }
+QPushButton:hover { background-color: #da190b; }</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="3">
+        <widget class="QPushButton" name="restartPackage7Button">
+         <property name="text">
+          <string>Restart</string>
+         </property>
+         <property name="styleSheet">
+          <string>QPushButton { background-color: #ff9800; color: white; border: none; padding: 8px; border-radius: 4px; }
+QPushButton:hover { background-color: #e68900; }</string>
+         </property>
+        </widget>
+       </item>
+       
+       <!-- Package 8 -->
+       <item row="7" column="0">
+        <widget class="QLabel" name="package8Label">
+         <property name="text">
+          <string>Package 8:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="1">
+        <widget class="QPushButton" name="startPackage8Button">
+         <property name="text">
+          <string>Start</string>
+         </property>
+         <property name="styleSheet">
+          <string>QPushButton { background-color: #4CAF50; color: white; border: none; padding: 8px; border-radius: 4px; }
+QPushButton:hover { background-color: #45a049; }</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="2">
+        <widget class="QPushButton" name="stopPackage8Button">
+         <property name="text">
+          <string>Stop</string>
+         </property>
+         <property name="styleSheet">
+          <string>QPushButton { background-color: #f44336; color: white; border: none; padding: 8px; border-radius: 4px; }
+QPushButton:hover { background-color: #da190b; }</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="3">
+        <widget class="QPushButton" name="restartPackage8Button">
+         <property name="text">
+          <string>Restart</string>
+         </property>
+         <property name="styleSheet">
+          <string>QPushButton { background-color: #ff9800; color: white; border: none; padding: 8px; border-radius: 4px; }
+QPushButton:hover { background-color: #e68900; }</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="statusGroup">
+      <property name="title">
+       <string>Status</string>
+      </property>
+      <layout class="QVBoxLayout" name="statusLayout">
+       <item>
+        <widget class="QTextEdit" name="statusTextEdit">
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+         <property name="maximumHeight">
+          <number>200</number>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <spacer name="verticalSpacer">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+   </layout>
+  </widget>
+  <action name="action_Quit">
+   <property name="text">
+    <string>&amp;Quit</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+   <property name="shortcutContext">
+    <enum>Qt::ApplicationShortcut</enum>
+   </property>
+  </action>
+  <action name="action_Preferences">
+   <property name="text">
+    <string>&amp;Preferences</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>&amp;About</string>
+   </property>
+  </action>
+  <action name="actionAbout_Qt">
+   <property name="text">
+    <string>About &amp;Qt</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="../resources/images.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>action_Quit</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindowDesign</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
