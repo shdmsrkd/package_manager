@@ -21,12 +21,20 @@ void MainWindow::initializePackageConfig()
   // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 패키지 괸리 여기서 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! (패키지명, launch파일명 또는 노드명)
   packageConfig[1] = QPair<QString, QString>("dynamixel_rdk_ros2", "rdk.launch.py");
   packageConfig[2] = QPair<QString, QString>("ik_walk", "ik_walk");
+<<<<<<< HEAD
+  packageConfig[3] = QPair<QString, QString>("ebimu_v5", "ebimu_v5");
+=======
   packageConfig[3] = QPair<QString, QString>("ebimu_v5", "e2box_imu_9dofv4.launch.py");
+>>>>>>> origin/main
   packageConfig[4] = QPair<QString, QString>("gripper_controller", "auto_mode.launch.py");
   packageConfig[5] = QPair<QString, QString>("intelligent_robot_vision", "intelligent_robot_vision.launch.py");
   packageConfig[6] = QPair<QString, QString>("srcirc_master25", "master.launch.py");
   packageConfig[7] = QPair<QString, QString>("tune_walk", "tune_walk");
+<<<<<<< HEAD
+  packageConfig[8] = QPair<QString, QString>("dynamixel_rdk_interface", "dynamixel_rdk_interface");
+=======
   packageConfig[8] = QPair<QString, QString>("motion_operator", "motion_operator.launch.py");
+>>>>>>> origin/main
 
   // 패키지 라벨 업데이트
   ui->package1Label->setText(QString("● Package 1: %1").arg(packageConfig[1].first));
