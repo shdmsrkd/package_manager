@@ -5,7 +5,8 @@ QNode::QNode()
   int argc = 0;
   char** argv = NULL;
   rclcpp::init(argc, argv);
-  node = rclcpp::Node::make_shared("package_manager");
+  node = rclcpp::Node::make_shared("package_manager_node");
+  initParameters();
   this->start();
 }
 
@@ -37,6 +38,82 @@ void QNode::run()
   }
   rclcpp::shutdown();
   Q_EMIT rosShutDown();
+}
+
+void QNode::initParameters()
+{
+  node->declare_parameter("packages.package1.name", "dynamixel_rdk_ros2");
+  node->declare_parameter("packages.package1.executable", "rdk.launch.py");
+  node->declare_parameter("packages.package1.type", "launch");
+
+  node->declare_parameter("packages.package2.name", "ik_walk");
+  node->declare_parameter("packages.package2.executable", "ik_walk");
+  node->declare_parameter("packages.package2.type", "run");
+
+  node->declare_parameter("packages.package3.name", "ebimu_v5");
+  node->declare_parameter("packages.package3.executable", "e2box_imu_9dofv4.launch.py");
+  node->declare_parameter("packages.package3.type", "launch");
+
+  node->declare_parameter("packages.package4.name", "gripper_controller");
+  node->declare_parameter("packages.package4.executable", "auto_mode.launch.py");
+  node->declare_parameter("packages.package4.type", "launch");
+
+  node->declare_parameter("packages.package5.name", "intelligent_robot_vision");
+  node->declare_parameter("packages.package5.executable", "intelligent_robot_vision.launch.py");
+  node->declare_parameter("packages.package5.type", "launch");
+
+  node->declare_parameter("packages.package6.name", "srcirc_master25");
+  node->declare_parameter("packages.package6.executable", "master.launch.py");
+  node->declare_parameter("packages.package6.type", "launch");
+
+  node->declare_parameter("packages.package7.name", "tune_walk");
+  node->declare_parameter("packages.package7.executable", "tune_walk");
+  node->declare_parameter("packages.package7.type", "run");
+
+  node->declare_parameter("packages.package8.name", "motion_operator");
+  node->declare_parameter("packages.package8.executable", "motion_operator.launch.py");
+  node->declare_parameter("packages.package8.type", "launch");
+
+  node->get_parameter("packages.package1.name", package1_name);
+  node->get_parameter("packages.package1.executable", package1_executable);
+  node->get_parameter("packages.package1.type", package1_type);
+
+  node->get_parameter("packages.package2.name", package2_name);
+  node->get_parameter("packages.package2.executable", package2_executable);
+  node->get_parameter("packages.package2.type", package2_type);
+
+  node->get_parameter("packages.package3.name", package3_name);
+  node->get_parameter("packages.package3.executable", package3_executable);
+  node->get_parameter("packages.package3.type", package3_type);
+
+  node->get_parameter("packages.package4.name", package4_name);
+  node->get_parameter("packages.package4.executable", package4_executable);
+  node->get_parameter("packages.package4.type", package4_type);
+
+  node->get_parameter("packages.package5.name", package5_name);
+  node->get_parameter("packages.package5.executable", package5_executable);
+  node->get_parameter("packages.package5.type", package5_type);
+
+  node->get_parameter("packages.package6.name", package6_name);
+  node->get_parameter("packages.package6.executable", package6_executable);
+  node->get_parameter("packages.package6.type", package6_type);
+
+  node->get_parameter("packages.package7.name", package7_name);
+  node->get_parameter("packages.package7.executable", package7_executable);
+  node->get_parameter("packages.package7.type", package7_type);
+
+  node->get_parameter("packages.package8.name", package8_name);
+  node->get_parameter("packages.package8.executable", package8_executable);
+  node->get_parameter("packages.package8.type", package8_type);
+
+  packages[1] = {package1_name, package1_executable, package1_type};
+  packages[2] = {package2_name, package2_executable, package2_type};
+  packages[3] = {package3_name, package3_executable, package3_type};
+  packages[4] = {package4_name, package4_executable, package4_type};
+  packages[5] = {package5_name, package5_executable, package5_type};
+  packages[6] = {package6_name, package6_executable, package6_type};
+  packages[7] = {package7_name, package7_executable, package7_type};
+  packages[8] = {package8_name, package8_executable, package8_type};
 }
 
 void QNode::startPackage(const QString& packageName, const QString& fileOrNodeName, int type)
@@ -174,4 +251,44 @@ void QNode::killPackageNodes(const QString& packageName)
   QProcess process;
   process.start("bash", QStringList() << "-c" << killCommand);
   process.waitForFinished();
+}
+
+QString QNode::getPackageName(int packageIndex)
+{
+  if (packages.find(packageIndex) != packages.end()) {
+    return QString::fromStdString(packages[packageIndex].name);
+  }
+  return "";
+}
+
+QString QNode::getPackageExecutable(int packageIndex)
+{
+  if (packages.find(packageIndex) != packages.end()) {
+    return QString::fromStdString(packages[packageIndex].executable);
+  }
+  return "";
+}
+
+QString QNode::getPackageType(int packageIndex)
+{
+  if (packages.find(packageIndex) != packages.end()) {
+    return QString::fromStdString(packages[packageIndex].type);
+  }
+  return "";
+}
+
+void QNode::startPackageByIndex(int packageIndex)
+{
+  QString packageName = getPackageName(packageIndex);
+  QString executable = getPackageExecutable(packageIndex);
+  QString type = getPackageType(packageIndex);
+
+  if (packageName.isEmpty()) {
+    Q_EMIT statusMessage(QString("Package %1 not found!").arg(packageIndex));
+    return;
+  }
+
+  int typeValue = (type == "launch") ? LAUNCH : RUN;
+
+  startPackage(packageName, executable, typeValue);
 }

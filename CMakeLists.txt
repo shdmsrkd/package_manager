@@ -45,7 +45,16 @@ add_executable(${PROJECT_NAME}
   )
 ament_target_dependencies(${PROJECT_NAME} rclcpp std_msgs lifecycle_msgs Boost)
 target_link_libraries(${PROJECT_NAME} Qt5::Widgets Qt5::Core Qt5::Gui Qt5::Network ${OpenCV_LIBRARIES})
+
+# Install executable
 install(TARGETS ${PROJECT_NAME} DESTINATION lib/${PROJECT_NAME})
+
+# Install launch files
+install(DIRECTORY launch/ DESTINATION share/${PROJECT_NAME}/launch)
+
+# Install config files
+install(DIRECTORY config/ DESTINATION share/${PROJECT_NAME}/config)
+
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   ament_lint_auto_find_test_dependencies()

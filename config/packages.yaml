@@ -1,0 +1,33 @@
+package_manager_node:
+  ros__parameters:
+    packages.package1.name: "dynamixel_rdk_ros2"
+    packages.package1.executable: "rdk.launch.py"
+    packages.package1.type: "launch"
+
+    packages.package2.name: "ik_walk"
+    packages.package2.executable: "ik_walk"
+    packages.package2.type: "run"
+
+    packages.package3.name: "ebimu_v5"
+    packages.package3.executable: "e2box_imu_9dofv4.launch.py"
+    packages.package3.type: "launch"
+
+    packages.package4.name: "gripper_controller"
+    packages.package4.executable: "auto_mode.launch.py"
+    packages.package4.type: "launch"
+
+    packages.package5.name: "intelligent_robot_vision"
+    packages.package5.executable: "intelligent_robot_vision.launch.py"
+    packages.package5.type: "launch"
+
+    packages.package6.name: "srcirc_master25"
+    packages.package6.executable: "master.launch.py"
+    packages.package6.type: "launch"
+
+    packages.package7.name: "tune_walk"
+    packages.package7.executable: "tune_walk"
+    packages.package7.type: "run"
+
+    packages.package8.name: "motion_operator"
+    packages.package8.executable: "motion_operator.launch.py"
+    packages.package8.type: "launch"

@@ -18,23 +18,15 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent), ui(new Ui::MainWi
 
 void MainWindow::initializePackageConfig()
 {
-  // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 패키지 괸리 여기서 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! (패키지명, launch파일명 또는 노드명)
-  packageConfig[1] = QPair<QString, QString>("dynamixel_rdk_ros2", "rdk.launch.py");
-  packageConfig[2] = QPair<QString, QString>("ik_walk", "ik_walk");
-<<<<<<< HEAD
-  packageConfig[3] = QPair<QString, QString>("ebimu_v5", "ebimu_v5");
-=======
-  packageConfig[3] = QPair<QString, QString>("ebimu_v5", "e2box_imu_9dofv4.launch.py");
->>>>>>> origin/main
-  packageConfig[4] = QPair<QString, QString>("gripper_controller", "auto_mode.launch.py");
-  packageConfig[5] = QPair<QString, QString>("intelligent_robot_vision", "intelligent_robot_vision.launch.py");
-  packageConfig[6] = QPair<QString, QString>("srcirc_master25", "master.launch.py");
-  packageConfig[7] = QPair<QString, QString>("tune_walk", "tune_walk");
-<<<<<<< HEAD
-  packageConfig[8] = QPair<QString, QString>("dynamixel_rdk_interface", "dynamixel_rdk_interface");
-=======
-  packageConfig[8] = QPair<QString, QString>("motion_operator", "motion_operator.launch.py");
->>>>>>> origin/main
+  // QNode에서 YAML 파라미터 정보를 가져와서 packageConfig 초기화
+  packageConfig[1] = QPair<QString, QString>(qnode->getPackageName(1), qnode->getPackageExecutable(1));
+  packageConfig[2] = QPair<QString, QString>(qnode->getPackageName(2), qnode->getPackageExecutable(2));
+  packageConfig[3] = QPair<QString, QString>(qnode->getPackageName(3), qnode->getPackageExecutable(3));
+  packageConfig[4] = QPair<QString, QString>(qnode->getPackageName(4), qnode->getPackageExecutable(4));
+  packageConfig[5] = QPair<QString, QString>(qnode->getPackageName(5), qnode->getPackageExecutable(5));
+  packageConfig[6] = QPair<QString, QString>(qnode->getPackageName(6), qnode->getPackageExecutable(6));
+  packageConfig[7] = QPair<QString, QString>(qnode->getPackageName(7), qnode->getPackageExecutable(7));
+  packageConfig[8] = QPair<QString, QString>(qnode->getPackageName(8), qnode->getPackageExecutable(8));
 
   // 패키지 라벨 업데이트
   ui->package1Label->setText(QString("● Package 1: %1").arg(packageConfig[1].first));
@@ -186,167 +178,167 @@ void MainWindow::updatePackageStatus(const QString& packageName, bool isRunning)
 /*====================================== Package 1 ======================================*/
 void MainWindow::onStartPackage1()
 {
-  QString packageName = packageConfig[1].first;
-  QString nodeName = packageConfig[1].second;
-  qnode->startPackage(packageName, nodeName, LAUNCH);
+  qnode->startPackageByIndex(1);
 }
 
 void MainWindow::onStopPackage1()
 {
-  QString packageName = packageConfig[1].first;
+  QString packageName = qnode->getPackageName(1);
   qnode->stopPackage(packageName);
 }
 
 void MainWindow::onRestartPackage1()
 {
-  QString packageName = packageConfig[1].first;
-  QString fileOrNode = packageConfig[1].second;
-  qnode->restartPackage(packageName, fileOrNode, LAUNCH);
+  QString packageName = qnode->getPackageName(1);
+  QString executable = qnode->getPackageExecutable(1);
+  QString type = qnode->getPackageType(1);
+  int typeValue = (type == "launch") ? LAUNCH : RUN;
+  qnode->restartPackage(packageName, executable, typeValue);
 }
 
 /*====================================== Package 2 ======================================*/
 void MainWindow::onStartPackage2()
 {
-  QString packageName = packageConfig[2].first;
-  QString nodeName = packageConfig[2].second;
-  qnode->startPackage(packageName, nodeName, RUN);
+  qnode->startPackageByIndex(2);
 }
 
 void MainWindow::onStopPackage2()
 {
-  QString packageName = packageConfig[2].first;
+  QString packageName = qnode->getPackageName(2);
   qnode->stopPackage(packageName);
 }
 
 void MainWindow::onRestartPackage2()
 {
-  QString packageName = packageConfig[2].first;
-  QString fileOrNode = packageConfig[2].second;
-  qnode->restartPackage(packageName, fileOrNode, RUN);
+  QString packageName = qnode->getPackageName(2);
+  QString executable = qnode->getPackageExecutable(2);
+  QString type = qnode->getPackageType(2);
+  int typeValue = (type == "launch") ? LAUNCH : RUN;
+  qnode->restartPackage(packageName, executable, typeValue);
 }
 
 /*====================================== Package 3 ======================================*/
 void MainWindow::onStartPackage3()
 {
-  QString packageName = packageConfig[3].first;
-  QString nodeName = packageConfig[3].second;
-  qnode->startPackage(packageName, nodeName, RUN);
+  qnode->startPackageByIndex(3);
 }
 
 void MainWindow::onStopPackage3()
 {
-  QString packageName = packageConfig[3].first;
+  QString packageName = qnode->getPackageName(3);
   qnode->stopPackage(packageName);
 }
 
 void MainWindow::onRestartPackage3()
 {
-  QString packageName = packageConfig[3].first;
-  QString fileOrNode = packageConfig[3].second;
-  qnode->restartPackage(packageName, fileOrNode, RUN);
+  QString packageName = qnode->getPackageName(3);
+  QString executable = qnode->getPackageExecutable(3);
+  QString type = qnode->getPackageType(3);
+  int typeValue = (type == "launch") ? LAUNCH : RUN;
+  qnode->restartPackage(packageName, executable, typeValue);
 }
 
 /*====================================== Package 4 ======================================*/
 void MainWindow::onStartPackage4()
 {
-  QString packageName = packageConfig[4].first;
-  QString nodeName = packageConfig[4].second;
-  qnode->startPackage(packageName, nodeName, LAUNCH);
+  qnode->startPackageByIndex(4);
 }
 
 void MainWindow::onStopPackage4()
 {
-  QString packageName = packageConfig[4].first;
+  QString packageName = qnode->getPackageName(4);
   qnode->stopPackage(packageName);
 }
 
 void MainWindow::onRestartPackage4()
 {
-  QString packageName = packageConfig[4].first;
-  QString fileOrNode = packageConfig[4].second;
-  qnode->restartPackage(packageName, fileOrNode, LAUNCH);
+  QString packageName = qnode->getPackageName(4);
+  QString executable = qnode->getPackageExecutable(4);
+  QString type = qnode->getPackageType(4);
+  int typeValue = (type == "launch") ? LAUNCH : RUN;
+  qnode->restartPackage(packageName, executable, typeValue);
 }
 
 /*====================================== Package 5 ======================================*/
 void MainWindow::onStartPackage5()
 {
-  QString packageName = packageConfig[5].first;
-  QString nodeName = packageConfig[5].second;
-  qnode->startPackage(packageName, nodeName, LAUNCH);
+  qnode->startPackageByIndex(5);
 }
 
 void MainWindow::onStopPackage5()
 {
-  QString packageName = packageConfig[5].first;
+  QString packageName = qnode->getPackageName(5);
   qnode->stopPackage(packageName);
 }
 
 void MainWindow::onRestartPackage5()
 {
-  QString packageName = packageConfig[5].first;
-  QString fileOrNode = packageConfig[5].second;
-  qnode->restartPackage(packageName, fileOrNode, LAUNCH);
+  QString packageName = qnode->getPackageName(5);
+  QString executable = qnode->getPackageExecutable(5);
+  QString type = qnode->getPackageType(5);
+  int typeValue = (type == "launch") ? LAUNCH : RUN;
+  qnode->restartPackage(packageName, executable, typeValue);
 }
 
 /*====================================== Package 6 ======================================*/
 void MainWindow::onStartPackage6()
 {
-  QString packageName = packageConfig[6].first;
-  QString nodeName = packageConfig[6].second;
-  qnode->startPackage(packageName, nodeName, LAUNCH);
+  qnode->startPackageByIndex(6);
 }
 
 void MainWindow::onStopPackage6()
 {
-  QString packageName = packageConfig[6].first;
+  QString packageName = qnode->getPackageName(6);
   qnode->stopPackage(packageName);
 }
 
 void MainWindow::onRestartPackage6()
 {
-  QString packageName = packageConfig[6].first;
-  QString fileOrNode = packageConfig[6].second;
-  qnode->restartPackage(packageName, fileOrNode, LAUNCH);
+  QString packageName = qnode->getPackageName(6);
+  QString executable = qnode->getPackageExecutable(6);
+  QString type = qnode->getPackageType(6);
+  int typeValue = (type == "launch") ? LAUNCH : RUN;
+  qnode->restartPackage(packageName, executable, typeValue);
 }
 
 /*====================================== Package 7 ======================================*/
 void MainWindow::onStartPackage7()
 {
-  QString packageName = packageConfig[7].first;
-  QString nodeName = packageConfig[7].second;
-  qnode->startPackage(packageName, nodeName, RUN);
+  qnode->startPackageByIndex(7);
 }
 
 void MainWindow::onStopPackage7()
 {
-  QString packageName = packageConfig[7].first;
+  QString packageName = qnode->getPackageName(7);
   qnode->stopPackage(packageName);
 }
 
 void MainWindow::onRestartPackage7()
 {
-  QString packageName = packageConfig[7].first;
-  QString fileOrNode = packageConfig[7].second;
-  qnode->restartPackage(packageName, fileOrNode, RUN);
+  QString packageName = qnode->getPackageName(7);
+  QString executable = qnode->getPackageExecutable(7);
+  QString type = qnode->getPackageType(7);
+  int typeValue = (type == "launch") ? LAUNCH : RUN;
+  qnode->restartPackage(packageName, executable, typeValue);
 }
 
 /*====================================== Package 8 ======================================*/
 void MainWindow::onStartPackage8()
 {
-  QString packageName = packageConfig[8].first;
-  QString nodeName = packageConfig[8].second;
-  qnode->startPackage(packageName, nodeName, RUN);
+  qnode->startPackageByIndex(8);
 }
 
 void MainWindow::onStopPackage8()
 {
-  QString packageName = packageConfig[8].first;
+  QString packageName = qnode->getPackageName(8);
   qnode->stopPackage(packageName);
 }
 
 void MainWindow::onRestartPackage8()
 {
-  QString packageName = packageConfig[8].first;
-  QString fileOrNode = packageConfig[8].second;
-  qnode->restartPackage(packageName, fileOrNode, RUN);
+  QString packageName = qnode->getPackageName(8);
+  QString executable = qnode->getPackageExecutable(8);
+  QString type = qnode->getPackageType(8);
+  int typeValue = (type == "launch") ? LAUNCH : RUN;
+  qnode->restartPackage(packageName, executable, typeValue);
 }
